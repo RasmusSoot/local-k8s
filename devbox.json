@@ -40,6 +40,15 @@
         "kubectl wait --for=jsonpath='{.status.loadBalancer.ingress}' service/lb-service-local --timeout=30s",
         "echo \"http://$(kubectl get service/lb-service-local -o=jsonpath='{.status.loadBalancer.ingress[0].ip}')\""
       ],
+      "cleanup": [
+        "devbox services stop",
+        "kind delete cluster"
+      ],
+      "add-additional-tools": [
+        "jq --slurpfile additional devbox-additional-tools.json '.packages += $additional[0].packages' devbox.json > devbox.json.tmp && mv devbox.json.tmp devbox.json",
+        "devbox install",
+        "devbox shell"
+      ],
       "gateway-alpha": [
         "devbox run build-slides",
         "devbox run build-image",
@@ -50,14 +59,14 @@
         "kubectl apply -f chart/slides-gateway-httproute.yaml",
         "kubectl get gateway"
       ],
-      "cleanup": [
-        "devbox services stop",
-        "kind delete cluster"
+      "k8s:dashboard:install": [
+        "kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/recommended.yaml -f kubernetes/local-k8s-dashboard-admin.yaml"
       ],
-      "add-additional-tools": [
-        "jq --slurpfile additional devbox-additional-tools.json '.packages += $additional[0].packages' devbox.json > devbox.json.tmp && mv devbox.json.tmp devbox.json",
-        "devbox install",
-        "devbox shell"
+      "k8s:dashboard:token": [
+        "kubectl get secret admin-user -n kubernetes-dashboard -o jsonpath={\".data.token\"} | base64 -d && echo"
+      ],
+      "k8s:dashboard:proxy": [
+        "kubectl port-forward svc/kubernetes-dashboard -n kubernetes-dashboard 4443:443"
       ]
     }
   }
