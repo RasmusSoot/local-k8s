@@ -94,9 +94,18 @@ Docker is like an onion, peel away the layers and all you're left with is tears
 
 # Podman
 
+[podman save](https://docs.podman.io/en/stable/markdown/podman-save.1.html)
+
 ```shell
 podman save -o slides.tar slides:local
 kind load image-archive slides.tar
+```
+
+[Enabling Load Balancer Port Mapping](https://github.com/kubernetes-sigs/cloud-provider-kind?tab=readme-ov-file#enabling-load-balancer-port-mapping)
+
+```shell
+podman ps
+curl localhost:42381
 ```
 
 [comment]: # (|||)
