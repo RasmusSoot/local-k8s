@@ -135,11 +135,11 @@ Host, devbox WSL, Docker WSL
 
 ## What does this have to do with testing?
 
-Local environment is now the CI environment that can be run locally
+Local environment is now CI environment
 
 * [kind interation test](https://gitlab.com/gitlab-org/charts/gitlab-runner/-/blob/main/.gitlab-ci.yml?ref_type=heads#L94)
 * [devbox test](https://github.com/vfarcic/crossplane-sql/blob/devbox/.github/workflows/build.yaml#L25)
-* Testcontainers requires Docker API - [kubedock](https://github.com/joyrex2001/kubedock)
+* P.S. Testcontainers requires Docker API - [kubedock](https://github.com/joyrex2001/kubedock)
 
 [comment]: # (!!!)
 
@@ -159,7 +159,7 @@ Local environment is now the CI environment that can be run locally
 * Personal vCluster inside your shared dev cluster
 * Personal namespaces inside your shared dev cluster
 * Single pod on your laptop running inside shared dev
-  cluster - [tilt](https://tilt.dev), [telepresence](telepresence.io),
+  cluster - [tilt](https://tilt.dev), [telepresence](https://telepresence.io),
   [garden](https://garden.io), [skaffold](https://skaffold.dev), [devspace](https://devspace.sh), [mirrord](https://metalbear.com/mirrord)
 * Personal database inside shared dev cluster - [postgres-branching](https://xata.io/postgres-branching)
 * Give up and use shared dev cluster
