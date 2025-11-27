@@ -1,0 +1,13 @@
+{
+  "packages": [
+    "go@latest",
+    "kubernetes-helm@latest",
+    "kube-score@latest",
+    "hadolint@latest",
+    "kubeconform@latest",
+    "nerdctl@latest",
+    "buildah@latest",
+    "shadow@latest",
+    "kaniko@latest"
+  ]
+}

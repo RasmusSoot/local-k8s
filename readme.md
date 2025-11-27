@@ -1,15 +1,24 @@
-
 # Devbox
+
 https://www.jetify.com/docs/devbox
+https://www.jetify.com/docs/devbox/installing-devbox#installing-wsl2
 
 ## Install
 
 Run the following install script as a non-root user to install the latest version of Devbox:
+
 ```shell
 curl -fsSL https://get.jetify.com/devbox | bash
 ```
 
-Run the slides, open the url
+Run the slides, open the url:
+
 ```shell
 devbox run just-work
+```
+
+Cleanup:
+
+```shell
+devbox run cleanup
 ```

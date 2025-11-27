@@ -7,16 +7,7 @@
     "cloud-provider-kind@latest",
     "kubectl@latest",
     "k9s@latest",
-    "go@latest",
-    "kubernetes-helm@latest",
-    "kube-score@latest",
-    "hadolint@latest",
-    "jq@latest",
-    "kubeconform@latest",
-    "nerdctl@latest",
-    "buildah@latest",
-    "shadow@latest",
-    "kaniko@latest"
+    "jq@latest"
   ],
   "shell": {
     "init_hook": [
@@ -62,6 +53,11 @@
       "cleanup": [
         "devbox services stop",
         "kind delete cluster"
+      ],
+      "add-additional-tools": [
+        "jq --slurpfile additional devbox-additional-tools.json '.packages += $additional[0].packages' devbox.json > devbox.json.tmp && mv devbox.json.tmp devbox.json",
+        "devbox install",
+        "devbox shell"
       ]
     }
   }
