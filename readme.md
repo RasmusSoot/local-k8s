@@ -1,7 +1,8 @@
 # Devbox
 
 https://www.jetify.com/docs/devbox
-https://www.jetify.com/docs/devbox/installing-devbox#installing-wsl2
+
+[Windows requires WSL2](https://www.jetify.com/docs/devbox/installing-devbox#installing-wsl2) 
 
 ## Install
 
